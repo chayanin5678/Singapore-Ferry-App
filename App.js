@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.safe}>
-      <StatusBar barStyle="light-content" backgroundColor="#075B83" />
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
       <WebView
         ref={webView}
         source={{ uri: FERRY_URL }}
@@ -44,7 +44,7 @@ function Loading() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#075B83' },
+  safe: { flex: 1, backgroundColor: '#FFFFFF' },
   loading: {
     ...StyleSheet.absoluteFillObject,
     alignItems: 'center',

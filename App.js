@@ -56,7 +56,16 @@ export default function App() {
       <WebView
         ref={webView}
         source={{ uri: activeTab === 'home' ? FERRY_URL : BOOKINGS_URL }}
-        onNavigationStateChange={(state) => setCanGoBack(state.canGoBack)}
+        onNavigationStateChange={(state) => {
+          setCanGoBack(state.canGoBack);
+          try {
+            const path = new URL(state.url).pathname;
+            if (path === '/') setActiveTab('home');
+            if (path.startsWith('/mybooking')) setActiveTab('bookings');
+          } catch {
+            // Ignore non-web URLs handled by the WebView.
+          }
+        }}
         javaScriptEnabled
         domStorageEnabled
         sharedCookiesEnabled

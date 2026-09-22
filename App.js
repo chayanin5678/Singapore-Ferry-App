@@ -65,6 +65,7 @@ export default function App() {
           <View style={styles.splashWaveMiddle} />
           <View style={styles.splashWaveBottom} />
         </View>
+        <Text style={styles.splashTitle}>Singapore Ferry Booking</Text>
       </View>
     );
   }
@@ -124,6 +125,7 @@ const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#FFFFFF' },
   splash: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#075B83' },
   splashMark: { width: 78, height: 78, borderRadius: 18, backgroundColor: '#FFFFFF', justifyContent: 'center', paddingHorizontal: 16, gap: 7 },
+  splashTitle: { marginTop: 20, color: '#FFFFFF', fontSize: 18, fontWeight: '700', letterSpacing: 0.2 },
   splashWaveTop: { width: 28, height: 5, borderRadius: 5, backgroundColor: '#075B83' },
   splashWaveMiddle: { width: 46, height: 5, borderRadius: 5, backgroundColor: '#1676D2' },
   splashWaveBottom: { width: 35, height: 5, borderRadius: 5, backgroundColor: '#F3AF35' },

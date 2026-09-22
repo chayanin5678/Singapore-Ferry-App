@@ -3,17 +3,6 @@ import { BackHandler, StatusBar, StyleSheet, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 const FERRY_URL = 'https://singaporeferry.com/';
-const SAFE_VIEWPORT_CSS = `
-  (function () {
-    var viewport = document.querySelector('meta[name="viewport"]');
-    if (viewport && !viewport.content.includes('viewport-fit=cover')) {
-      viewport.content += ', viewport-fit=cover';
-    }
-    document.documentElement.style.paddingTop = 'env(safe-area-inset-top)';
-    document.documentElement.style.paddingBottom = 'env(safe-area-inset-bottom)';
-  })();
-  true;
-`;
 
 export default function App() {
   const webView = useRef(null);
@@ -39,7 +28,7 @@ export default function App() {
         domStorageEnabled
         sharedCookiesEnabled
         thirdPartyCookiesEnabled
-        injectedJavaScriptBeforeContentLoaded={SAFE_VIEWPORT_CSS}
+        contentInsetAdjustmentBehavior="automatic"
       />
     </View>
   );

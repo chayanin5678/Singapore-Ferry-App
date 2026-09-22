@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Ferry Booking",
-    "slug": "ferry-booking",
+    "name": "Trip",
+    "slug": "trip",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",

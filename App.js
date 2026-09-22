@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { BackHandler, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { BackHandler, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 const FERRY_URL = 'https://www.singaporeferry.com/';
@@ -59,13 +59,12 @@ export default function App() {
   if (showSplash) {
     return (
       <View style={styles.splash}>
-        <StatusBar barStyle="light-content" backgroundColor="#075B83" />
-        <View style={styles.splashMark}>
-          <View style={styles.splashWaveTop} />
-          <View style={styles.splashWaveMiddle} />
-          <View style={styles.splashWaveBottom} />
-        </View>
-        <Text style={styles.splashTitle}>Singapore Ferry Booking</Text>
+        <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+        <Image
+          source={require('./assets/singapore-ferry-logo.png')}
+          resizeMode="contain"
+          style={styles.splashLogo}
+        />
       </View>
     );
   }
@@ -123,12 +122,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#FFFFFF' },
-  splash: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#075B83' },
-  splashMark: { width: 78, height: 78, borderRadius: 18, backgroundColor: '#FFFFFF', justifyContent: 'center', paddingHorizontal: 16, gap: 7 },
-  splashTitle: { marginTop: 20, color: '#FFFFFF', fontSize: 18, fontWeight: '700', letterSpacing: 0.2 },
-  splashWaveTop: { width: 28, height: 5, borderRadius: 5, backgroundColor: '#075B83' },
-  splashWaveMiddle: { width: 46, height: 5, borderRadius: 5, backgroundColor: '#1676D2' },
-  splashWaveBottom: { width: 35, height: 5, borderRadius: 5, backgroundColor: '#F3AF35' },
+  splash: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#FFFFFF' },
+  splashLogo: { width: 210, height: 105 },
   tabBar: {
     height: 68,
     flexDirection: 'row',

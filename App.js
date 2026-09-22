@@ -10,6 +10,9 @@ const DISABLE_ZOOM = `
       viewport.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no');
     }
     document.documentElement.style.touchAction = 'pan-y';
+    var style = document.createElement('style');
+    style.textContent = 'input, select, textarea, .form-control, .choices__inner { font-size: 16px !important; }';
+    (document.head || document.documentElement).appendChild(style);
     true;
   })();
 `;

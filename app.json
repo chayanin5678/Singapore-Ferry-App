@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Singapore Ferry",
-    "slug": "singapore-ferry-mobile",
+    "name": "Ferry Booking",
+    "slug": "ferry-booking",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",

@@ -3,6 +3,13 @@ import { BackHandler, StatusBar, StyleSheet, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 const FERRY_URL = 'https://singaporeferry.com/';
+const HIDE_SITE_BRANDING = `
+  (function () {
+    var brand = document.querySelector('header .navbar-brand');
+    if (brand) brand.style.visibility = 'hidden';
+    true;
+  })();
+`;
 
 export default function App() {
   const webView = useRef(null);
@@ -29,6 +36,7 @@ export default function App() {
         sharedCookiesEnabled
         thirdPartyCookiesEnabled
         contentInsetAdjustmentBehavior="automatic"
+        injectedJavaScript={HIDE_SITE_BRANDING}
       />
     </View>
   );

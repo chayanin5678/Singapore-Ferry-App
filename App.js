@@ -38,8 +38,14 @@ const HIDE_SITE_BRANDING = `
 
 export default function App() {
   const webView = useRef(null);
+  const [showSplash, setShowSplash] = useState(true);
   const [canGoBack, setCanGoBack] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => setShowSplash(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
 
   React.useEffect(() => {
     const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
@@ -49,6 +55,20 @@ export default function App() {
     });
     return () => subscription.remove();
   }, [canGoBack]);
+
+  if (showSplash) {
+    return (
+      <View style={styles.splash}>
+        <StatusBar barStyle="light-content" backgroundColor="#075B83" />
+        <View style={styles.splashRing}><Text style={styles.splashArrow}>→</Text></View>
+        <View style={styles.splashRoute}>
+          <View style={styles.splashDot} />
+          <View style={styles.splashLine} />
+          <View style={[styles.splashDot, styles.splashEndDot]} />
+        </View>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.safe}>
@@ -103,6 +123,21 @@ export default function App() {
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#FFFFFF' },
+  splash: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#075B83' },
+  splashRing: {
+    width: 84,
+    height: 84,
+    borderWidth: 2,
+    borderColor: '#F3AF35',
+    borderRadius: 42,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  splashArrow: { color: '#FFFFFF', fontSize: 42, fontWeight: '300', marginTop: -5 },
+  splashRoute: { width: 124, height: 20, marginTop: 28, flexDirection: 'row', alignItems: 'center' },
+  splashDot: { width: 9, height: 9, borderRadius: 5, backgroundColor: '#F3AF35' },
+  splashLine: { flex: 1, height: 1, backgroundColor: '#72A8BD' },
+  splashEndDot: { backgroundColor: '#FFFFFF' },
   tabBar: {
     height: 68,
     flexDirection: 'row',

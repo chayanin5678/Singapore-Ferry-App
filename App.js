@@ -90,7 +90,9 @@ export default function App() {
           onPress={() => setActiveTab('bookings')}
         >
           <View style={[styles.ticketIcon, activeTab === 'bookings' && styles.ticketIconActive]}>
+            <View style={styles.ticketNotchLeft} />
             <View style={[styles.ticketStripe, activeTab === 'bookings' && styles.ticketStripeActive]} />
+            <View style={styles.ticketNotchRight} />
           </View>
           <Text style={[styles.tabLabel, activeTab === 'bookings' && styles.tabActive]}>My Booking</Text>
         </TouchableOpacity>
@@ -113,15 +115,17 @@ const styles = StyleSheet.create({
   tabLabel: { color: '#91A0A5', fontSize: 11, fontWeight: '600' },
   tabActive: { color: '#1676D2' },
   ticketIcon: {
-    width: 23,
-    height: 18,
+    width: 27,
+    height: 19,
     borderWidth: 2,
     borderColor: '#91A0A5',
-    borderRadius: 4,
+    borderRadius: 3,
     alignItems: 'center',
     justifyContent: 'center',
   },
   ticketIconActive: { borderColor: '#1676D2' },
-  ticketStripe: { width: 2, height: 11, borderRadius: 1, backgroundColor: '#91A0A5' },
-  ticketStripeActive: { backgroundColor: '#1676D2' },
+  ticketStripe: { height: 12, borderLeftWidth: 1.5, borderStyle: 'dashed', borderColor: '#91A0A5' },
+  ticketStripeActive: { borderColor: '#1676D2' },
+  ticketNotchLeft: { position: 'absolute', left: -4, width: 7, height: 7, borderRadius: 4, backgroundColor: '#FFFFFF' },
+  ticketNotchRight: { position: 'absolute', right: -4, width: 7, height: 7, borderRadius: 4, backgroundColor: '#FFFFFF' },
 });

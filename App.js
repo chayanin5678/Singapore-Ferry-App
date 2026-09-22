@@ -89,7 +89,9 @@ export default function App() {
           style={styles.tab}
           onPress={() => setActiveTab('bookings')}
         >
-          <Text style={[styles.tabIcon, activeTab === 'bookings' && styles.tabActive]}>🎫</Text>
+          <View style={[styles.ticketIcon, activeTab === 'bookings' && styles.ticketIconActive]}>
+            <View style={[styles.ticketStripe, activeTab === 'bookings' && styles.ticketStripeActive]} />
+          </View>
           <Text style={[styles.tabLabel, activeTab === 'bookings' && styles.tabActive]}>My Booking</Text>
         </TouchableOpacity>
       </View>
@@ -110,4 +112,16 @@ const styles = StyleSheet.create({
   tabIcon: { color: '#91A0A5', fontSize: 22, lineHeight: 24 },
   tabLabel: { color: '#91A0A5', fontSize: 11, fontWeight: '600' },
   tabActive: { color: '#1676D2' },
+  ticketIcon: {
+    width: 23,
+    height: 18,
+    borderWidth: 2,
+    borderColor: '#91A0A5',
+    borderRadius: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  ticketIconActive: { borderColor: '#1676D2' },
+  ticketStripe: { width: 2, height: 11, borderRadius: 1, backgroundColor: '#91A0A5' },
+  ticketStripeActive: { backgroundColor: '#1676D2' },
 });

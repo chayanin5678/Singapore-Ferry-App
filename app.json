@@ -7,7 +7,10 @@
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "ios": {
-      "bundleIdentifier": "com.singaporeferry.booking"
+      "bundleIdentifier": "com.singaporeferry.booking",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "com.singaporeferry.booking"

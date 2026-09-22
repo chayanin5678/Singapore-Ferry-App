@@ -6,6 +6,17 @@
     "icon": "./assets/icon.png",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
+    "ios": {
+      "bundleIdentifier": "com.singaporeferry.booking"
+    },
+    "android": {
+      "package": "com.singaporeferry.booking"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b6a38b6c-755d-4496-b01a-68e0c078df59"
+      }
+    },
     "splash": { "backgroundColor": "#0C6B94" },
     "assetBundlePatterns": ["**/*"]
   }

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ActivityIndicator, BackHandler, SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, BackHandler, StatusBar, StyleSheet, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 const FERRY_URL = 'https://singaporeferry.com/';
@@ -19,7 +19,7 @@ export default function App() {
   }, [canGoBack]);
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <View style={styles.safe}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
       <WebView
         ref={webView}
@@ -35,7 +35,7 @@ export default function App() {
         renderLoading={() => <Loading />}
       />
       {loading && <Loading />}
-    </SafeAreaView>
+    </View>
   );
 }
 

@@ -59,12 +59,20 @@ export default function App() {
   if (showSplash) {
     return (
       <View style={styles.splash}>
-        <StatusBar barStyle="light-content" backgroundColor="#075B83" />
-        <View style={styles.splashRing}><Text style={styles.splashArrow}>→</Text></View>
-        <View style={styles.splashRoute}>
-          <View style={styles.splashDot} />
-          <View style={styles.splashLine} />
-          <View style={[styles.splashDot, styles.splashEndDot]} />
+        <StatusBar barStyle="dark-content" backgroundColor="#F8FBFC" />
+        <View style={styles.splashGlow} />
+        <View style={styles.splashSun} />
+        <View style={styles.splashBoat}>
+          <View style={styles.splashMast} />
+          <View style={styles.splashLargeSail} />
+          <View style={styles.splashSmallSail} />
+          <View style={styles.splashHull} />
+          <View style={styles.splashDeck} />
+        </View>
+        <View style={styles.splashWaves}>
+          <View style={styles.splashWave} />
+          <View style={[styles.splashWave, styles.splashWaveShort]} />
+          <View style={[styles.splashWave, styles.splashWaveWide]} />
         </View>
       </View>
     );
@@ -123,21 +131,19 @@ export default function App() {
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#FFFFFF' },
-  splash: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#075B83' },
-  splashRing: {
-    width: 84,
-    height: 84,
-    borderWidth: 2,
-    borderColor: '#F3AF35',
-    borderRadius: 42,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  splashArrow: { color: '#FFFFFF', fontSize: 42, fontWeight: '300', marginTop: -5 },
-  splashRoute: { width: 124, height: 20, marginTop: 28, flexDirection: 'row', alignItems: 'center' },
-  splashDot: { width: 9, height: 9, borderRadius: 5, backgroundColor: '#F3AF35' },
-  splashLine: { flex: 1, height: 1, backgroundColor: '#72A8BD' },
-  splashEndDot: { backgroundColor: '#FFFFFF' },
+  splash: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#F8FBFC', overflow: 'hidden' },
+  splashGlow: { position: 'absolute', top: -104, right: -70, width: 276, height: 276, borderRadius: 138, backgroundColor: '#E4F3F8' },
+  splashSun: { position: 'absolute', top: '31%', left: '50%', marginLeft: -52, width: 104, height: 104, borderRadius: 52, backgroundColor: '#F6C95C' },
+  splashBoat: { width: 128, height: 118, marginTop: 28, position: 'relative' },
+  splashMast: { position: 'absolute', zIndex: 3, left: 62, top: 6, height: 80, width: 4, borderRadius: 2, backgroundColor: '#0A668E' },
+  splashLargeSail: { position: 'absolute', left: 10, top: 10, width: 0, height: 0, borderTopWidth: 0, borderRightWidth: 51, borderBottomWidth: 70, borderTopColor: 'transparent', borderRightColor: 'transparent', borderBottomColor: '#0A668E' },
+  splashSmallSail: { position: 'absolute', right: 10, top: 18, width: 0, height: 0, borderTopWidth: 0, borderLeftWidth: 39, borderBottomWidth: 58, borderTopColor: 'transparent', borderLeftColor: 'transparent', borderBottomColor: '#4BA4BF' },
+  splashHull: { position: 'absolute', left: 5, bottom: 19, width: 118, height: 17, borderBottomLeftRadius: 18, borderBottomRightRadius: 18, backgroundColor: '#075B83' },
+  splashDeck: { position: 'absolute', left: 25, bottom: 33, width: 76, height: 6, borderRadius: 4, backgroundColor: '#0A668E' },
+  splashWaves: { width: 160, gap: 9, alignItems: 'center', marginTop: 20 },
+  splashWave: { width: 148, height: 5, borderRadius: 4, backgroundColor: '#8CC8DA' },
+  splashWaveShort: { width: 102, backgroundColor: '#B5DCE7' },
+  splashWaveWide: { width: 176, backgroundColor: '#D0EAF0' },
   tabBar: {
     height: 68,
     flexDirection: 'row',

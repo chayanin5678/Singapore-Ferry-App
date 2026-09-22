@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
-import { BackHandler, StatusBar, StyleSheet, View } from 'react-native';
+import { BackHandler, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 const FERRY_URL = 'https://singaporeferry.com/';
+const BOOKINGS_URL = 'https://singaporeferry.com/signin';
 const DISABLE_ZOOM = `
   (function () {
     var viewport = document.querySelector('meta[name="viewport"]');
@@ -38,6 +39,7 @@ const HIDE_SITE_BRANDING = `
 export default function App() {
   const webView = useRef(null);
   const [canGoBack, setCanGoBack] = useState(false);
+  const [activeTab, setActiveTab] = useState('home');
 
   React.useEffect(() => {
     const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
@@ -53,7 +55,7 @@ export default function App() {
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
       <WebView
         ref={webView}
-        source={{ uri: FERRY_URL }}
+        source={{ uri: activeTab === 'home' ? FERRY_URL : BOOKINGS_URL }}
         onNavigationStateChange={(state) => setCanGoBack(state.canGoBack)}
         javaScriptEnabled
         domStorageEnabled
@@ -64,10 +66,39 @@ export default function App() {
         injectedJavaScriptBeforeContentLoaded={DISABLE_ZOOM}
         injectedJavaScript={HIDE_SITE_BRANDING}
       />
+      <View style={styles.tabBar}>
+        <TouchableOpacity
+          accessibilityRole="button"
+          style={styles.tab}
+          onPress={() => setActiveTab('home')}
+        >
+          <Text style={[styles.tabIcon, activeTab === 'home' && styles.tabActive]}>⌂</Text>
+          <Text style={[styles.tabLabel, activeTab === 'home' && styles.tabActive]}>Home</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          accessibilityRole="button"
+          style={styles.tab}
+          onPress={() => setActiveTab('bookings')}
+        >
+          <Text style={[styles.tabIcon, activeTab === 'bookings' && styles.tabActive]}>▣</Text>
+          <Text style={[styles.tabLabel, activeTab === 'bookings' && styles.tabActive]}>My Booking</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#FFFFFF' },
+  tabBar: {
+    height: 68,
+    flexDirection: 'row',
+    backgroundColor: '#FFFFFF',
+    borderTopWidth: 1,
+    borderTopColor: '#E7ECEE',
+  },
+  tab: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 3 },
+  tabIcon: { color: '#91A0A5', fontSize: 22, lineHeight: 24 },
+  tabLabel: { color: '#91A0A5', fontSize: 11, fontWeight: '600' },
+  tabActive: { color: '#1676D2' },
 });

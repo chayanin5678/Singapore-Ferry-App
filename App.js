@@ -3,7 +3,7 @@ import { BackHandler, StatusBar, StyleSheet, Text, TouchableOpacity, View } from
 import { WebView } from 'react-native-webview';
 
 const FERRY_URL = 'https://singaporeferry.com/';
-const BOOKINGS_URL = 'https://singaporeferry.com/signin';
+const BOOKINGS_URL = 'https://www.singaporeferry.com/mybooking';
 const DISABLE_ZOOM = `
   (function () {
     var viewport = document.querySelector('meta[name="viewport"]');

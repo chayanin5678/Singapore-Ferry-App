@@ -80,7 +80,7 @@ export default function App() {
           style={styles.tab}
           onPress={() => setActiveTab('bookings')}
         >
-          <Text style={[styles.tabIcon, activeTab === 'bookings' && styles.tabActive]}>▣</Text>
+          <Text style={[styles.tabIcon, activeTab === 'bookings' && styles.tabActive]}>🎫</Text>
           <Text style={[styles.tabLabel, activeTab === 'bookings' && styles.tabActive]}>My Booking</Text>
         </TouchableOpacity>
       </View>

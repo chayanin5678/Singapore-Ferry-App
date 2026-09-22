@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { BackHandler, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 
-const FERRY_URL = 'https://singaporeferry.com/';
+const FERRY_URL = 'https://www.singaporeferry.com/';
 const BOOKINGS_URL = 'https://www.singaporeferry.com/mybooking';
 const DISABLE_ZOOM = `
   (function () {

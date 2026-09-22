@@ -20,6 +20,17 @@ const HIDE_SITE_BRANDING = `
   (function () {
     var brand = document.querySelector('header .navbar-brand');
     if (brand) brand.style.visibility = 'hidden';
+    var viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+      viewport.setAttribute('content', 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no');
+    }
+    var style = document.getElementById('expo-webview-overrides');
+    if (!style) {
+      style = document.createElement('style');
+      style.id = 'expo-webview-overrides';
+      document.head.appendChild(style);
+    }
+    style.textContent = 'input, select, textarea, .form-control, .choices__inner { font-size: 16px !important; -webkit-text-size-adjust: 100% !important; }';
     true;
   })();
 `;

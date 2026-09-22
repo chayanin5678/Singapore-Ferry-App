@@ -3,6 +3,16 @@ import { BackHandler, StatusBar, StyleSheet, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 const FERRY_URL = 'https://singaporeferry.com/';
+const DISABLE_ZOOM = `
+  (function () {
+    var viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+      viewport.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no');
+    }
+    document.documentElement.style.touchAction = 'pan-y';
+    true;
+  })();
+`;
 const HIDE_SITE_BRANDING = `
   (function () {
     var brand = document.querySelector('header .navbar-brand');
@@ -36,6 +46,8 @@ export default function App() {
         sharedCookiesEnabled
         thirdPartyCookiesEnabled
         contentInsetAdjustmentBehavior="automatic"
+        scalesPageToFit={false}
+        injectedJavaScriptBeforeContentLoaded={DISABLE_ZOOM}
         injectedJavaScript={HIDE_SITE_BRANDING}
       />
     </View>

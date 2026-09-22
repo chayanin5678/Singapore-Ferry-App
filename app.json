@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Singapore Ferry",
+    "slug": "singapore-ferry-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": { "backgroundColor": "#0C6B94" },
+    "assetBundlePatterns": ["**/*"]
+  }
+}
